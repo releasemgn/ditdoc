@@ -1,0 +1,428 @@
+--
+-- New Cloud Technologies Enterprise Specific MIB: Structure of Management Information
+--
+-- Copyright (c), New Cloud Technologies, Ltd.
+--
+-- The contents of this document are subject to change without notice.
+--
+
+NCT-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+    enterprises,
+    MODULE-IDENTITY,
+    OBJECT-IDENTITY,
+    OBJECT-TYPE,
+    NOTIFICATION-TYPE,
+    Counter32
+        FROM SNMPv2-SMI;
+
+nctLtd MODULE-IDENTITY
+    LAST-UPDATED "201512181500Z"
+    ORGANIZATION "New Cloud Technologies, Ltd."
+    CONTACT-INFO
+        "vladislav.varnavsky@ncloudtech.ru"
+    DESCRIPTION
+        "The Structure of Management Information for New Cloud Technologies."
+    ::= { enterprises 46958 }
+
+nctSoftware OBJECT-IDENTITY
+    STATUS  current
+    DESCRIPTION
+        "The root of software OIDs."
+    ::= { nctLtd 100 }
+
+    webApi OBJECT IDENTIFIER    ::= { nctSoftware 1 }
+        webApiHttpStatus OBJECT IDENTIFIER    ::= { webApi 1 }
+            WebApiHttpStatus200 OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "WebAPI status 200"
+                ::= { webApiHttpStatus 1 }
+            WebApiHttpStatus300 OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "WebAPI status 300"
+                ::= { webApiHttpStatus 2 }
+            WebApiHttpStatus400 OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "WebAPI status 400"
+                ::= { webApiHttpStatus 3 }
+            WebApiHttpStatus500 OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "WebAPI status 500"
+                ::= { webApiHttpStatus 4 }
+            WebApiUnhandledError OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "WebAPI unhandled error"
+                ::= { webApiHttpStatus 5 }
+        WebApiAccepted OBJECT-TYPE
+             SYNTAX  Counter32
+             MAX-ACCESS read-only
+             STATUS  current
+             DESCRIPTION
+                 "Accepted"
+             ::= { webApi 2 }
+        WebApiRequests OBJECT-TYPE
+             SYNTAX  Counter32
+             MAX-ACCESS read-only
+             STATUS  current
+             DESCRIPTION
+                 "Requests"
+             ::= { webApi 3 }
+        WebApiFork OBJECT-TYPE
+             SYNTAX  Counter32
+             MAX-ACCESS read-only
+             STATUS  current
+             DESCRIPTION
+                 "Fork"
+             ::= { webApi 4 }
+        WebApiBlockedOnAccept OBJECT-TYPE
+             SYNTAX  Counter32
+             MAX-ACCESS read-only
+             STATUS  current
+             DESCRIPTION
+                 "blocked on accept"
+             ::= { webApi 5 }
+    mailApi OBJECT IDENTIFIER    ::= { nctSoftware 2 }
+        mailApiHttpStatus OBJECT IDENTIFIER    ::= { mailApi 1 }
+            MailApiHttpStatus200 OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "MailApi status 200"
+                ::= { mailApiHttpStatus 1 }
+            MailApiHttpStatus300 OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "MailApi status 300"
+                ::= { mailApiHttpStatus 2 }
+            MailApiHttpStatus400 OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "MailApi status 400"
+                ::= { mailApiHttpStatus 3 }
+            MailApiHttpStatus500 OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "MailApi status 500"
+                ::= { mailApiHttpStatus 4 }
+            MailApiUnhandledError OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "MailApi unhandled error"
+                ::= { mailApiHttpStatus 5 }
+        MailApiAccepted OBJECT-TYPE
+             SYNTAX  Counter32
+             MAX-ACCESS read-only
+             STATUS  current
+             DESCRIPTION
+                 "Accepted"
+             ::= { mailApi 2 }
+        MailApiRequests OBJECT-TYPE
+             SYNTAX  Counter32
+             MAX-ACCESS read-only
+             STATUS  current
+             DESCRIPTION
+                 "Requests"
+             ::= { mailApi 3 }
+        MailApiFork OBJECT-TYPE
+             SYNTAX  Counter32
+             MAX-ACCESS read-only
+             STATUS  current
+             DESCRIPTION
+                 "Fork"
+             ::= { mailApi 4 }
+        MailApiBlockedOnAccept OBJECT-TYPE
+             SYNTAX  Counter32
+             MAX-ACCESS read-only
+             STATUS  current
+             DESCRIPTION
+                 "blocked on accept"
+             ::= { mailApi 5 }
+    webDav OBJECT IDENTIFIER    ::= { nctSoftware 3 }
+        webDavHttpStatus OBJECT IDENTIFIER    ::= { webDav 1 }
+            WebDavHttpStatus200 OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "WebDav status 200"
+                ::= { webDavHttpStatus 1 }
+            WebDavHttpStatus300 OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "WebDav status 300"
+                ::= { webDavHttpStatus 2 }
+            WebDavHttpStatus400 OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "WebDav status 400"
+                ::= { webDavHttpStatus 3 }
+            WebDavHttpStatus500 OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "WebDav status 500"
+                ::= { webDavHttpStatus 4 }
+            WebDavUnhandledError OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "WebDav unhandled error"
+                ::= { webDavHttpStatus 5 }
+        WebDavAccepted OBJECT-TYPE
+             SYNTAX  Counter32
+             MAX-ACCESS read-only
+             STATUS  current
+             DESCRIPTION
+                 "Accepted"
+             ::= { webDav 2 }
+        WebDavRequests OBJECT-TYPE
+             SYNTAX  Counter32
+             MAX-ACCESS read-only
+             STATUS  current
+             DESCRIPTION
+                 "Requests"
+             ::= { webDav 3 }
+        WebDavFork OBJECT-TYPE
+             SYNTAX  Counter32
+             MAX-ACCESS read-only
+             STATUS  current
+             DESCRIPTION
+                 "Fork"
+             ::= { webDav 4 }
+        WebDavBlockedOnAccept OBJECT-TYPE
+             SYNTAX  Counter32
+             MAX-ACCESS read-only
+             STATUS  current
+             DESCRIPTION
+                 "blocked on accept"
+             ::= { webDav 5 }
+    webSmtpApi OBJECT IDENTIFIER    ::= { nctSoftware 4 }
+        webSmtpApiHttpStatus OBJECT IDENTIFIER    ::= { webSmtpApi 1 }
+            WebSmtpApiHttpStatus200 OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "WebSmtpApi status 200"
+                ::= { webSmtpApiHttpStatus 1 }
+            WebSmtpApiHttpStatus300 OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "WebSmtpApi status 300"
+                ::= { webSmtpApiHttpStatus 2 }
+            WebSmtpApiHttpStatus400 OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "WebSmtpApi status 400"
+                ::= { webSmtpApiHttpStatus 3 }
+            WebSmtpApiHttpStatus500 OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "WebSmtpApi status 500"
+                ::= { webSmtpApiHttpStatus 4 }
+            WebSmtpApiUnhandledError OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "WebSmtpApi unhandled error"
+                ::= { webSmtpApiHttpStatus 5 }
+        WebSmtpApiAccepted OBJECT-TYPE
+             SYNTAX  Counter32
+             MAX-ACCESS read-only
+             STATUS  current
+             DESCRIPTION
+                 "Accepted"
+             ::= { webSmtpApi 2 }
+        WebSmtpApiRequests OBJECT-TYPE
+             SYNTAX  Counter32
+             MAX-ACCESS read-only
+             STATUS  current
+             DESCRIPTION
+                 "Requests"
+             ::= { webSmtpApi 3 }
+        WebSmtpFork OBJECT-TYPE
+             SYNTAX  Counter32
+             MAX-ACCESS read-only
+             STATUS  current
+             DESCRIPTION
+                 "Fork"
+             ::= { webSmtpApi 4 }
+        WebSmtpApiBlockedOnAccept OBJECT-TYPE
+             SYNTAX  Counter32
+             MAX-ACCESS read-only
+             STATUS  current
+             DESCRIPTION
+                 "blocked on accept"
+             ::= { webSmtpApi 5 }
+    cardDav    OBJECT IDENTIFIER    ::= { nctSoftware 5 }
+        cardDavHttpStatus OBJECT IDENTIFIER    ::= { cardDav 1 }
+            CardDavHttpStatus200 OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "CardDav status 200"
+                ::= { cardDavHttpStatus 1 }
+            CardDavHttpStatus300 OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "CardDav status 300"
+                ::= { cardDavHttpStatus 2 }
+            CardDavHttpStatus400 OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "CardDav status 400"
+                ::= { cardDavHttpStatus 3 }
+            CardDavHttpStatus500 OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "CardDav status 500"
+                ::= { cardDavHttpStatus 4 }
+            CardDavUnhandledError OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "CardDav unhandled error"
+                ::= { cardDavHttpStatus 5 }
+        CardDavAccepted OBJECT-TYPE
+             SYNTAX  Counter32
+             MAX-ACCESS read-only
+             STATUS  current
+             DESCRIPTION
+                 "Accepted"
+             ::= { cardDav 2 }
+        CardDavRequests OBJECT-TYPE
+             SYNTAX  Counter32
+             MAX-ACCESS read-only
+             STATUS  current
+             DESCRIPTION
+                 "Requests"
+             ::= { cardDav 3 }
+        CardDavFork OBJECT-TYPE
+             SYNTAX  Counter32
+             MAX-ACCESS read-only
+             STATUS  current
+             DESCRIPTION
+                 "Fork"
+             ::= { cardDav 4 }
+        CardDavBlockedOnAccept OBJECT-TYPE
+             SYNTAX  Counter32
+             MAX-ACCESS read-only
+             STATUS  current
+             DESCRIPTION
+                 "blocked on accept"
+             ::= { cardDav 5 }
+    calDav OBJECT IDENTIFIER    ::= { nctSoftware 6 }
+        calDavHttpStatus OBJECT IDENTIFIER    ::= { calDav 1 }
+            CalDavHttpStatus200 OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "CalDav status 200"
+                ::= { calDavHttpStatus 1 }
+            CalDavHttpStatus300 OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "CalDav status 300"
+                ::= { calDavHttpStatus 2 }
+            CalDavHttpStatus400 OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "CalDav status 400"
+                ::= { calDavHttpStatus 3 }
+            CalDavHttpStatus500 OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "CalDav status 500"
+                ::= { calDavHttpStatus 4 }
+            CalDavUnhandledError OBJECT-TYPE
+                SYNTAX  Counter32
+                MAX-ACCESS read-only
+                STATUS  current
+                DESCRIPTION
+                    "CalDav unhandled error"
+                ::= { calDavHttpStatus 5 }
+        CalDavAccepted OBJECT-TYPE
+             SYNTAX  Counter32
+             MAX-ACCESS read-only
+             STATUS  current
+             DESCRIPTION
+                 "Accepted"
+             ::= { calDav 2 }
+        CalDavRequests OBJECT-TYPE
+             SYNTAX  Counter32
+             MAX-ACCESS read-only
+             STATUS  current
+             DESCRIPTION
+                 "Requests"
+             ::= { calDav 3 }
+        CalDavFork OBJECT-TYPE
+             SYNTAX  Counter32
+             MAX-ACCESS read-only
+             STATUS  current
+             DESCRIPTION
+                 "Fork"
+             ::= { calDav 4 }
+        CalDavBlockedOnAccept OBJECT-TYPE
+             SYNTAX  Counter32
+             MAX-ACCESS read-only
+             STATUS  current
+             DESCRIPTION
+                 "blocked on accept"
+             ::= { calDav 5 }
+END
+
+
+
